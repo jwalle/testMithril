@@ -1,0 +1,54 @@
+body {
+    background: #173F5F;
+}
+
+header {
+    background: #F6D55C;
+    color: #20639B;
+    font-size: 20px;
+    font-family: cursive;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.gallery {
+    display: grid;
+    width: 100%;
+    grid-gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 150px;
+    grid-auto-flow: dense;
+}
+
+.gallery > div {
+    position: relative;
+}
+
+.author_name {
+    position: absolute;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    bottom: 5px;
+    background-color: #3CAEA3;
+    color: #fff;
+    right: 5px;
+    padding: 5px;
+    opacity: 0;
+}
+
+img:hover + .author_name {
+    opacity: 0.8;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: url('./static/loading.gif') 50% no-repeat;
+}
