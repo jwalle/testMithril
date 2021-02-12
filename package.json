@@ -4,9 +4,7 @@
   "description": "Mithril.js technical test",
   "scripts": {
     "start": "webpack serve  --open",
-    "dev": "webpack --mode development --watch",
-    "build": "webpack -p",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack --mode development --watch"
   },
   "repository": {
     "type": "git",

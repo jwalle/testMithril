@@ -2,15 +2,15 @@ import {shuffleArray} from '../tools'
 
 const setSize = ({height, width, id}) => {
     // all portrait images
-    if (height > width) return { "grid-column": `span 1`, 'grid-row': `span 2` }
+    if (height > width) return {  'grid-row': `span 2` }
 
     const rand = Math.random();
     // 20 % landscape images
-    if (rand > 0.8) return { "grid-column": `span 2`, 'grid-row': `span 1` };
+    if (rand > 0.8) return { "grid-column": `span 2` };
     // 20 % double size images
     if (rand < 0.2) return { "grid-column": `span 2`,  'grid-row': `span 2` };
     // 60 % normal images
-    return { "grid-column": `span 1`,  'grid-row': `span 1` };
+    return { 'grid-row': `span 1` };
 };
 
 const Data = {
@@ -24,7 +24,7 @@ const Data = {
             .then((result) => {
                 shuffleArray(result);
                 result = result.map((image) => {
-                    // set random dimension to each image
+                    // set a random dimension to each image
                     image.dimension = setSize(image)
                     return image;
                 });

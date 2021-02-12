@@ -16,9 +16,7 @@ var scrollListener = {
 
 var Gallery = {
     oninit: Data.loadImages,
-    oncreate: () => {
-        document.addEventListener("scroll", scrollListener )
-    } ,
+    oncreate: () => document.addEventListener("scroll", scrollListener ),
     onremove: () => document.removeEventListener("scroll", scrollListener),
     view: () => {
         return [

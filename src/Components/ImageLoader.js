@@ -1,15 +1,13 @@
-// import loadingIcon from '../static/loading.gif'
-
 const ImageLoader = () => {
     let _dom = undefined;
     let state = {
         loadedURL: null,
     };
 
-    // create a link to the image with applied compression
-    const setLink = ({height, width, id}, compression) => {
-        const lowWidth = Math.floor(width / compression);
-        const lowHeight = Math.floor(height / compression);
+    // create a link to the image with a downscale resolution
+    const setLink = ({height, width, id}, downscale) => {
+        const lowWidth = Math.floor(width / downscale);
+        const lowHeight = Math.floor(height / downscale);
 
         return `https://picsum.photos/id/${id}/${lowWidth}/${lowHeight}`
     };
@@ -27,10 +25,11 @@ const ImageLoader = () => {
     
     const renderView = (vnode) => {
         return  m('div', {style:vnode.attrs.dimension},
-        [
-            m('img', {src: state.loadedURL || setLink(vnode.attrs, 10), alt: vnode.attrs.author}),
-            m('span', { class: 'author_name' }, vnode.attrs.author)
-        ])
+            [
+                m('img', {src: state.loadedURL || setLink(vnode.attrs, 10), alt: vnode.attrs.author}),
+                m('span', { class: 'author_name' }, vnode.attrs.author)
+            ]
+        )
     }
 
     return {
