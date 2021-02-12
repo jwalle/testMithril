@@ -22,7 +22,7 @@ var Gallery = {
     onremove: () => document.removeEventListener("scroll", scrollListener),
     view: () => {
         return [
-            m(".gallery", {
+            m("#gallery", {
             } ,[ Data.images.map(image => m(ImageLoader, image)) ])
         ]
     }
